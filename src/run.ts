@@ -3,6 +3,7 @@ import * as path from "path";
 
 // create the library project folders
 
+console.log('hello world');
 const args = process.argv.slice(2);
 if (!args.length) {
 	console.error('you must provide the name of the library');
@@ -26,7 +27,7 @@ copyFile('.gitignore');
 createFolder('tests');
 
 function copyFile(fileName: string, replaceMap?: { [key: string]: string }): void {
-	const filePath = path.join(__dirname, '..', 'resources', fileName);
+	const filePath = path.join(__dirname, 'resources', fileName);
 	if (!fs.existsSync(filePath)) {
 		console.error(`the file ${fileName} doesn\'t exist in resources folder`);
 		process.exit(1);

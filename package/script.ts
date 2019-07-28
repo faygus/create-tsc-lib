@@ -10,6 +10,9 @@ if (!fs.existsSync(distPath)) {
 const packageJSONFileName = 'package.json';
 fs.copyFileSync(path.join(__dirname, 'files', packageJSONFileName), path.join(distPath, packageJSONFileName));
 
+// copy resources
+fsExtra.copySync('resources', path.join('dist', 'resources'));
+
 const binPath = path.join(distPath, 'bin');
 if (!fs.existsSync(binPath)) {
 	fs.mkdirSync(binPath);
