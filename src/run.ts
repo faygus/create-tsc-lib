@@ -3,7 +3,6 @@ import * as path from "path";
 
 // create the library project folders
 
-console.log('hello world');
 const args = process.argv.slice(2);
 if (!args.length) {
 	console.error('you must provide the name of the library');
