@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import * as fsExtra from "fs-extra";
 import * as path from "path";
 
 // create the library project folders
@@ -23,7 +24,9 @@ copyFile('tsconfig.json', {
 });
 copyFile('jest.config.js');
 copyFile('gitignore', undefined, '.gitignore');
-createFolder('tests');
+copyFolder('demo');
+copyFolder('src');
+copyFolder('tests');
 
 function copyFile(fileName: string, replaceMap?: { [key: string]: string },
 	newFileName?: string): void {
@@ -39,9 +42,10 @@ function copyFile(fileName: string, replaceMap?: { [key: string]: string },
 	fs.writeFileSync(dest, newFileContent, 'utf8');
 }
 
-function createFolder(name: string): void {
+function copyFolder(name: string): void {
+	const src = path.join(__dirname, 'resources', name);
 	const dest = path.join(libName, name);
-	fs.mkdirSync(dest);
+	fsExtra.copySync(src, dest);
 }
 
 function changeFileContent(src: string, replaceMap: { [key: string]: string }): string {

@@ -7,7 +7,8 @@
   "types": "{{outDir}}/index.d.ts",
   "scripts": {
     "test": "jest",
-		"build": "tsc"
+		"build": "tsc",
+		"demo": "ts-node --project ./demo/tsconfig.json ./demo/index.ts"
 	},
 	"devDependencies": {
     "@types/jest": "^24.0.15",

@@ -4,5 +4,9 @@
     "module": "commonjs",                     /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */
 		"outDir": "{{outDir}}",
 		"declaration": true
-	}
+	},
+	"exclude": [
+		"tests",
+		"demo"
+	]
 }

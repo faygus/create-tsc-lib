@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "ts-node --project package/tsconfig.json package/script.ts",
-    "build": "tsc && npm run package"
+		"build": "tsc && npm run package && chmod +x dist/bin/create-tsc-lib",
+		"link": "rm ~/Documents/development/bin/create-tsc-lib && ln -s ~/Documents/development/projects/create-tsc-lib/dist/bin/create-tsc-lib ~/Documents/development/bin/create-tsc-lib"
   },
   "author": "",
   "license": "ISC",
