@@ -22,10 +22,11 @@ copyFile('tsconfig.json', {
 	outDir: distFolderName
 });
 copyFile('jest.config.js');
-copyFile('.gitignore');
+copyFile('gitignore', undefined, '.gitignore');
 createFolder('tests');
 
-function copyFile(fileName: string, replaceMap?: { [key: string]: string }): void {
+function copyFile(fileName: string, replaceMap?: { [key: string]: string },
+	newFileName?: string): void {
 	const filePath = path.join(__dirname, 'resources', fileName);
 	if (!fs.existsSync(filePath)) {
 		console.error(`the file ${fileName} doesn\'t exist in resources folder`);
@@ -33,7 +34,8 @@ function copyFile(fileName: string, replaceMap?: { [key: string]: string }): voi
 	}
 	const fileContent = fs.readFileSync(filePath, 'utf8');
 	const newFileContent = replaceMap ? changeFileContent(fileContent, replaceMap) : fileContent;
-	const dest = path.join(libName, fileName);
+	if (!newFileName) newFileName = fileName;
+	const dest = path.join(libName, newFileName);
 	fs.writeFileSync(dest, newFileContent, 'utf8');
 }
 
