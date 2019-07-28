@@ -1,0 +1,17 @@
+{
+  "name": "create-tsc-lib",
+  "version": "1.0.0",
+  "description": "",
+	"main": "index.js",
+	"types": "index.d.ts",
+  "keywords": [],
+  "author": "Jean-Samuel Durier",
+	"license": "ISC",
+  "bin": {
+    "create-tsc-lib": "./create-tsc-lib"
+  },
+  "dependencies": {
+		"file-system": "^2.2.2",
+    "fs-extra": "^8.0.0"
+  }
+}
